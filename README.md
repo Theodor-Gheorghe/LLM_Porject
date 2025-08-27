@@ -6,25 +6,6 @@ Acest proiect implementeaza un chatbot AI care recomanda carti pe baza interesel
 
 ---
 
-## Structura proiectului
-
-smart_librarian/
-├── app.py                     # Launcher cu meniu CLI
-├── requirements.txt           # Lista pachetelor necesare
-├── README.md                  # Documentatia proiectului
-├── .env.example               # Exemplu de fisier pentru cheia OpenAI
-├── data/
-│   ├── book_summaries.txt     # Rezumate scurte (pentru vectori)
-│   └── banned_words.txt       # Cuvinte interzise (filtru limbaj)
-├── embeddings/                # Folder creat automat de ChromaDB
-├── src/
-│   ├── chat.py                # Chatbotul principal
-│   ├── retriever.py           # Vectorizare si cautare semantica
-│   ├── tools.py               # Functia `get_summary_by_title` + tool GPT
-│   └── utils.py               # Voice input, TTS, filtrare limbaj
-
----
-
 ## Instructiuni de rulare
 
 1. Instaleaza dependentele:
@@ -38,3 +19,8 @@ python src/retriever.py
 
 4. Ruleaza aplicatia:
 python app.py
+
+
+Nota: din motive legate de accesul la OpenAI embeddings, generarea vectorilor ChromaDB poate esua in unele contexte.
+Pentru testare completa a functionalitatii RAG se poate folosi modelul `text-embedding-ada-002` sau un fallback manual.
+Toate celelalte componente functioneaza local: GPT, rezumate, text-to-speech, speech-to-text si tool calling.
